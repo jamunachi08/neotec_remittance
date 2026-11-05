@@ -1,0 +1,283 @@
+{
+ "doctype": "DocType",
+ "name": "Remittance Quote",
+ "module": "Neotec Remittance",
+ "custom": 0,
+ "engine": "InnoDB",
+ "autoname": "hash",
+ "naming_rule": "Random",
+ "istable": 0,
+ "issingle": 0,
+ "is_submittable": 0,
+ "track_changes": 1,
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "in_create": 1,
+ "fields": [
+  {
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "label": "Customer",
+   "options": "Remittance Customer",
+   "search_index": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "entity",
+   "fieldtype": "Link",
+   "label": "Legal Entity",
+   "options": "Company",
+   "read_only": 1
+  },
+  {
+   "fieldname": "corridor",
+   "fieldtype": "Link",
+   "label": "Corridor",
+   "options": "Remittance Corridor",
+   "read_only": 1
+  },
+  {
+   "fieldname": "corridor_version",
+   "fieldtype": "Int",
+   "label": "Corridor Version",
+   "read_only": 1
+  },
+  {
+   "fieldname": "partner",
+   "fieldtype": "Link",
+   "label": "Partner",
+   "options": "Remittance Partner",
+   "read_only": 1
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Open\nAccepted\nExpired",
+   "in_list_view": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "transfer",
+   "fieldtype": "Link",
+   "label": "Transfer",
+   "options": "Remittance Transfer",
+   "read_only": 1
+  },
+  {
+   "fieldname": "cb1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "send_currency",
+   "fieldtype": "Link",
+   "label": "Send Currency",
+   "options": "Currency",
+   "read_only": 1
+  },
+  {
+   "fieldname": "receive_currency",
+   "fieldtype": "Link",
+   "label": "Receive Currency",
+   "options": "Currency",
+   "read_only": 1
+  },
+  {
+   "fieldname": "principal",
+   "fieldtype": "Currency",
+   "label": "Principal",
+   "options": "send_currency",
+   "in_list_view": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "fee",
+   "fieldtype": "Currency",
+   "label": "Fee",
+   "options": "send_currency",
+   "read_only": 1
+  },
+  {
+   "fieldname": "vat",
+   "fieldtype": "Currency",
+   "label": "VAT",
+   "options": "send_currency",
+   "read_only": 1
+  },
+  {
+   "fieldname": "total_payable",
+   "fieldtype": "Currency",
+   "label": "Total Payable",
+   "options": "send_currency",
+   "read_only": 1
+  },
+  {
+   "fieldname": "payout_amount",
+   "fieldtype": "Currency",
+   "label": "Payout Amount",
+   "options": "receive_currency",
+   "in_list_view": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "sb_rate",
+   "fieldtype": "Section Break",
+   "label": "Rate Snapshot"
+  },
+  {
+   "fieldname": "mid_rate",
+   "fieldtype": "Data",
+   "label": "Mid Rate",
+   "read_only": 1
+  },
+  {
+   "fieldname": "markup_percent",
+   "fieldtype": "Data",
+   "label": "Markup Percent",
+   "read_only": 1
+  },
+  {
+   "fieldname": "customer_rate",
+   "fieldtype": "Data",
+   "label": "Customer Rate",
+   "read_only": 1
+  },
+  {
+   "fieldname": "cb2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "rate_record",
+   "fieldtype": "Link",
+   "label": "Rate Record",
+   "options": "Remittance Rate",
+   "read_only": 1
+  },
+  {
+   "fieldname": "created_at",
+   "fieldtype": "Datetime",
+   "label": "Created At (UTC)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "expires_at",
+   "fieldtype": "Datetime",
+   "label": "Expires At (UTC)",
+   "read_only": 1
+  }
+ ],
+ "field_order": [
+  "customer",
+  "entity",
+  "corridor",
+  "corridor_version",
+  "partner",
+  "status",
+  "transfer",
+  "cb1",
+  "send_currency",
+  "receive_currency",
+  "principal",
+  "fee",
+  "vat",
+  "total_payable",
+  "payout_amount",
+  "sb_rate",
+  "mid_rate",
+  "markup_percent",
+  "customer_rate",
+  "cb2",
+  "rate_record",
+  "created_at",
+  "expires_at"
+ ],
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 0,
+   "write": 0,
+   "create": 0,
+   "delete": 0
+  },
+  {
+   "role": "Remittance Manager",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 0,
+   "write": 0,
+   "create": 0,
+   "delete": 0
+  },
+  {
+   "role": "Remittance Operator",
+   "read": 1,
+   "report": 1,
+   "export": 0,
+   "print": 1,
+   "email": 1,
+   "share": 0,
+   "write": 0,
+   "create": 0,
+   "delete": 0
+  },
+  {
+   "role": "Remittance Compliance Officer",
+   "read": 1,
+   "report": 1,
+   "export": 0,
+   "print": 1,
+   "email": 1,
+   "share": 0,
+   "write": 0,
+   "create": 0,
+   "delete": 0
+  },
+  {
+   "role": "Remittance Compliance Approver",
+   "read": 1,
+   "report": 1,
+   "export": 0,
+   "print": 1,
+   "email": 1,
+   "share": 0,
+   "write": 0,
+   "create": 0,
+   "delete": 0
+  },
+  {
+   "role": "Remittance Finance",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 0,
+   "write": 0,
+   "create": 0,
+   "delete": 0
+  },
+  {
+   "role": "Remittance Auditor",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 0,
+   "write": 0,
+   "create": 0,
+   "delete": 0
+  }
+ ],
+ "states": [],
+ "links": [],
+ "actions": []
+}

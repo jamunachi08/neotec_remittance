@@ -1,0 +1,316 @@
+{
+ "doctype": "Workspace",
+ "name": "Neotec Remittance",
+ "label": "Neotec Remittance",
+ "title": "Neotec Remittance",
+ "module": "Neotec Remittance",
+ "public": 1,
+ "is_hidden": 0,
+ "icon": "money-coins-1",
+ "sequence_id": 40.0,
+ "content": "[{\"id\": \"h1\", \"type\": \"header\", \"data\": {\"text\": \"<span class=\\\"h4\\\"><b>Neotec Remittance</b></span>\", \"col\": 12}}, {\"id\": \"s0\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Transfers\", \"col\": 3}}, {\"id\": \"s1\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Quarantined Events\", \"col\": 3}}, {\"id\": \"s2\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Outbox Exceptions\", \"col\": 3}}, {\"id\": \"s3\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Open Cases\", \"col\": 3}}, {\"id\": \"s4\", \"type\": \"shortcut\", \"data\": {\"shortcut_name\": \"Settings\", \"col\": 3}}, {\"id\": \"c0\", \"type\": \"card\", \"data\": {\"card_name\": \"Operations\", \"col\": 4}}, {\"id\": \"c1\", \"type\": \"card\", \"data\": {\"card_name\": \"Compliance\", \"col\": 4}}, {\"id\": \"c2\", \"type\": \"card\", \"data\": {\"card_name\": \"Finance\", \"col\": 4}}, {\"id\": \"c3\", \"type\": \"card\", \"data\": {\"card_name\": \"Setup\", \"col\": 4}}]",
+ "links": [
+  {
+   "type": "Card Break",
+   "label": "Operations",
+   "hidden": 0,
+   "is_query_report": 0,
+   "link_count": 6,
+   "onboard": 0
+  },
+  {
+   "type": "Link",
+   "label": "Transfer",
+   "link_type": "DocType",
+   "link_to": "Remittance Transfer",
+   "hidden": 0,
+   "is_query_report": 0,
+   "link_count": 0,
+   "onboard": 0,
+   "dependencies": ""
+  },
+  {
+   "type": "Link",
+   "label": "Funding Receipt",
+   "link_type": "DocType",
+   "link_to": "Remittance Funding Receipt",
+   "hidden": 0,
+   "is_query_report": 0,
+   "link_count": 0,
+   "onboard": 0,
+   "dependencies": ""
+  },
+  {
+   "type": "Link",
+   "label": "Payout Attempt",
+   "link_type": "DocType",
+   "link_to": "Remittance Payout Attempt",
+   "hidden": 0,
+   "is_query_report": 0,
+   "link_count": 0,
+   "onboard": 0,
+   "dependencies": ""
+  },
+  {
+   "type": "Link",
+   "label": "Outbox",
+   "link_type": "DocType",
+   "link_to": "Remittance Outbox",
+   "hidden": 0,
+   "is_query_report": 0,
+   "link_count": 0,
+   "onboard": 0,
+   "dependencies": ""
+  },
+  {
+   "type": "Link",
+   "label": "Inbox",
+   "link_type": "DocType",
+   "link_to": "Remittance Inbox",
+   "hidden": 0,
+   "is_query_report": 0,
+   "link_count": 0,
+   "onboard": 0,
+   "dependencies": ""
+  },
+  {
+   "type": "Link",
+   "label": "Notification",
+   "link_type": "DocType",
+   "link_to": "Remittance Notification",
+   "hidden": 0,
+   "is_query_report": 0,
+   "link_count": 0,
+   "onboard": 0,
+   "dependencies": ""
+  },
+  {
+   "type": "Card Break",
+   "label": "Compliance",
+   "hidden": 0,
+   "is_query_report": 0,
+   "link_count": 4,
+   "onboard": 0
+  },
+  {
+   "type": "Link",
+   "label": "Compliance Case",
+   "link_type": "DocType",
+   "link_to": "Remittance Compliance Case",
+   "hidden": 0,
+   "is_query_report": 0,
+   "link_count": 0,
+   "onboard": 0,
+   "dependencies": ""
+  },
+  {
+   "type": "Link",
+   "label": "Watchlist Entry",
+   "link_type": "DocType",
+   "link_to": "Remittance Watchlist Entry",
+   "hidden": 0,
+   "is_query_report": 0,
+   "link_count": 0,
+   "onboard": 0,
+   "dependencies": ""
+  },
+  {
+   "type": "Link",
+   "label": "Customer",
+   "link_type": "DocType",
+   "link_to": "Remittance Customer",
+   "hidden": 0,
+   "is_query_report": 0,
+   "link_count": 0,
+   "onboard": 0,
+   "dependencies": ""
+  },
+  {
+   "type": "Link",
+   "label": "Beneficiary",
+   "link_type": "DocType",
+   "link_to": "Remittance Beneficiary",
+   "hidden": 0,
+   "is_query_report": 0,
+   "link_count": 0,
+   "onboard": 0,
+   "dependencies": ""
+  },
+  {
+   "type": "Card Break",
+   "label": "Finance",
+   "hidden": 0,
+   "is_query_report": 0,
+   "link_count": 6,
+   "onboard": 0
+  },
+  {
+   "type": "Link",
+   "label": "Journal",
+   "link_type": "DocType",
+   "link_to": "Remittance Journal",
+   "hidden": 0,
+   "is_query_report": 0,
+   "link_count": 0,
+   "onboard": 0,
+   "dependencies": ""
+  },
+  {
+   "type": "Link",
+   "label": "Ledger Line",
+   "link_type": "DocType",
+   "link_to": "Remittance Ledger Line",
+   "hidden": 0,
+   "is_query_report": 0,
+   "link_count": 0,
+   "onboard": 0,
+   "dependencies": ""
+  },
+  {
+   "type": "Link",
+   "label": "Adjustment",
+   "link_type": "DocType",
+   "link_to": "Remittance Adjustment",
+   "hidden": 0,
+   "is_query_report": 0,
+   "link_count": 0,
+   "onboard": 0,
+   "dependencies": ""
+  },
+  {
+   "type": "Link",
+   "label": "Safeguarding Check",
+   "link_type": "DocType",
+   "link_to": "Remittance Safeguarding Check",
+   "hidden": 0,
+   "is_query_report": 0,
+   "link_count": 0,
+   "onboard": 0,
+   "dependencies": ""
+  },
+  {
+   "type": "Link",
+   "label": "ERP Posting",
+   "link_type": "DocType",
+   "link_to": "Remittance ERP Posting",
+   "hidden": 0,
+   "is_query_report": 0,
+   "link_count": 0,
+   "onboard": 0,
+   "dependencies": ""
+  },
+  {
+   "type": "Link",
+   "label": "Account",
+   "link_type": "DocType",
+   "link_to": "Remittance Account",
+   "hidden": 0,
+   "is_query_report": 0,
+   "link_count": 0,
+   "onboard": 0,
+   "dependencies": ""
+  },
+  {
+   "type": "Card Break",
+   "label": "Setup",
+   "hidden": 0,
+   "is_query_report": 0,
+   "link_count": 4,
+   "onboard": 0
+  },
+  {
+   "type": "Link",
+   "label": "Settings",
+   "link_type": "DocType",
+   "link_to": "Remittance Settings",
+   "hidden": 0,
+   "is_query_report": 0,
+   "link_count": 0,
+   "onboard": 0,
+   "dependencies": ""
+  },
+  {
+   "type": "Link",
+   "label": "Partner",
+   "link_type": "DocType",
+   "link_to": "Remittance Partner",
+   "hidden": 0,
+   "is_query_report": 0,
+   "link_count": 0,
+   "onboard": 0,
+   "dependencies": ""
+  },
+  {
+   "type": "Link",
+   "label": "Corridor",
+   "link_type": "DocType",
+   "link_to": "Remittance Corridor",
+   "hidden": 0,
+   "is_query_report": 0,
+   "link_count": 0,
+   "onboard": 0,
+   "dependencies": ""
+  },
+  {
+   "type": "Link",
+   "label": "Rate",
+   "link_type": "DocType",
+   "link_to": "Remittance Rate",
+   "hidden": 0,
+   "is_query_report": 0,
+   "link_count": 0,
+   "onboard": 0,
+   "dependencies": ""
+  }
+ ],
+ "shortcuts": [
+  {
+   "type": "DocType",
+   "link_to": "Remittance Transfer",
+   "label": "Transfers",
+   "color": "Blue",
+   "doc_view": "List",
+   "stats_filter": "[]"
+  },
+  {
+   "type": "DocType",
+   "link_to": "Remittance Inbox",
+   "label": "Quarantined Events",
+   "color": "Red",
+   "doc_view": "List",
+   "stats_filter": "[[\"Remittance Inbox\", \"status\", \"=\", \"Quarantined\", false]]"
+  },
+  {
+   "type": "DocType",
+   "link_to": "Remittance Outbox",
+   "label": "Outbox Exceptions",
+   "color": "Orange",
+   "doc_view": "List",
+   "stats_filter": "[[\"Remittance Outbox\", \"status\", \"=\", \"Exception\", false]]"
+  },
+  {
+   "type": "DocType",
+   "link_to": "Remittance Compliance Case",
+   "label": "Open Cases",
+   "color": "Yellow",
+   "doc_view": "List",
+   "stats_filter": "[[\"Remittance Compliance Case\", \"status\", \"!=\", \"Decided\", false]]"
+  },
+  {
+   "type": "DocType",
+   "link_to": "Remittance Settings",
+   "label": "Settings",
+   "color": "Grey",
+   "doc_view": ""
+  }
+ ],
+ "charts": [],
+ "number_cards": [],
+ "quick_lists": [],
+ "custom_blocks": [],
+ "roles": [],
+ "for_user": "",
+ "parent_page": "",
+ "hide_custom": 0,
+ "restrict_to_domain": ""
+}
