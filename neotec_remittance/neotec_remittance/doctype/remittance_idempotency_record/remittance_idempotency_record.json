@@ -1,0 +1,173 @@
+{
+ "doctype": "DocType",
+ "name": "Remittance Idempotency Record",
+ "module": "Neotec Remittance",
+ "custom": 0,
+ "engine": "InnoDB",
+ "autoname": "hash",
+ "naming_rule": "Random",
+ "istable": 0,
+ "issingle": 0,
+ "is_submittable": 0,
+ "track_changes": 1,
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "in_create": 1,
+ "fields": [
+  {
+   "fieldname": "scope_key",
+   "fieldtype": "Data",
+   "label": "Scope Key",
+   "unique": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "operation",
+   "fieldtype": "Data",
+   "label": "Operation",
+   "in_list_view": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "principal",
+   "fieldtype": "Data",
+   "label": "Principal",
+   "read_only": 1
+  },
+  {
+   "fieldname": "cb1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "entity",
+   "fieldtype": "Link",
+   "label": "Legal Entity",
+   "options": "Company",
+   "read_only": 1
+  },
+  {
+   "fieldname": "request_hash",
+   "fieldtype": "Data",
+   "label": "Request Hash",
+   "read_only": 1
+  },
+  {
+   "fieldname": "resource",
+   "fieldtype": "Data",
+   "label": "Resource",
+   "read_only": 1
+  },
+  {
+   "fieldname": "http_status",
+   "fieldtype": "Int",
+   "label": "Http Status",
+   "read_only": 1
+  },
+  {
+   "fieldname": "response_json",
+   "fieldtype": "Long Text",
+   "label": "Response Json",
+   "read_only": 1
+  }
+ ],
+ "field_order": [
+  "scope_key",
+  "operation",
+  "principal",
+  "cb1",
+  "entity",
+  "request_hash",
+  "resource",
+  "http_status",
+  "response_json"
+ ],
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 0,
+   "write": 0,
+   "create": 0,
+   "delete": 0
+  },
+  {
+   "role": "Remittance Manager",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 0,
+   "write": 0,
+   "create": 0,
+   "delete": 0
+  },
+  {
+   "role": "Remittance Operator",
+   "read": 1,
+   "report": 1,
+   "export": 0,
+   "print": 1,
+   "email": 1,
+   "share": 0,
+   "write": 0,
+   "create": 0,
+   "delete": 0
+  },
+  {
+   "role": "Remittance Compliance Officer",
+   "read": 1,
+   "report": 1,
+   "export": 0,
+   "print": 1,
+   "email": 1,
+   "share": 0,
+   "write": 0,
+   "create": 0,
+   "delete": 0
+  },
+  {
+   "role": "Remittance Compliance Approver",
+   "read": 1,
+   "report": 1,
+   "export": 0,
+   "print": 1,
+   "email": 1,
+   "share": 0,
+   "write": 0,
+   "create": 0,
+   "delete": 0
+  },
+  {
+   "role": "Remittance Finance",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 0,
+   "write": 0,
+   "create": 0,
+   "delete": 0
+  },
+  {
+   "role": "Remittance Auditor",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 0,
+   "write": 0,
+   "create": 0,
+   "delete": 0
+  }
+ ],
+ "states": [],
+ "links": [],
+ "actions": []
+}

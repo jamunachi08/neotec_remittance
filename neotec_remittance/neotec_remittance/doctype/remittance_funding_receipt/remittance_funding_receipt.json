@@ -1,0 +1,243 @@
+{
+ "doctype": "DocType",
+ "name": "Remittance Funding Receipt",
+ "module": "Neotec Remittance",
+ "custom": 0,
+ "engine": "InnoDB",
+ "autoname": "hash",
+ "naming_rule": "Random",
+ "istable": 0,
+ "issingle": 0,
+ "is_submittable": 0,
+ "track_changes": 1,
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "in_create": 1,
+ "fields": [
+  {
+   "fieldname": "bank_account",
+   "fieldtype": "Link",
+   "label": "Bank Account",
+   "options": "Remittance Account",
+   "read_only": 1
+  },
+  {
+   "fieldname": "external_entry_id",
+   "fieldtype": "Data",
+   "label": "External Entry Id",
+   "in_list_view": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "dedup_key",
+   "fieldtype": "Data",
+   "label": "Dedup Key",
+   "unique": 1,
+   "hidden": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "currency",
+   "fieldtype": "Link",
+   "label": "Currency",
+   "options": "Currency",
+   "read_only": 1
+  },
+  {
+   "fieldname": "amount",
+   "fieldtype": "Currency",
+   "label": "Amount",
+   "options": "currency",
+   "in_list_view": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "allocated_amount",
+   "fieldtype": "Currency",
+   "label": "Allocated Amount",
+   "options": "currency",
+   "read_only": 1
+  },
+  {
+   "fieldname": "cb1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Unallocated\nPartially Allocated\nAllocated\nRefund Pending\nRefunded",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "value_date",
+   "fieldtype": "Date",
+   "label": "Value Date",
+   "read_only": 1
+  },
+  {
+   "fieldname": "received_at",
+   "fieldtype": "Datetime",
+   "label": "Received At (UTC)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "transfer",
+   "fieldtype": "Link",
+   "label": "Transfer",
+   "options": "Remittance Transfer",
+   "search_index": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "sb_src",
+   "fieldtype": "Section Break",
+   "label": "Source Evidence"
+  },
+  {
+   "fieldname": "reference_text",
+   "fieldtype": "Small Text",
+   "label": "Reference Text",
+   "read_only": 1
+  },
+  {
+   "fieldname": "payer_name",
+   "fieldtype": "Data",
+   "label": "Payer Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "payer_account_masked",
+   "fieldtype": "Data",
+   "label": "Payer Account Masked",
+   "read_only": 1
+  },
+  {
+   "fieldname": "cb2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "source",
+   "fieldtype": "Data",
+   "label": "Source",
+   "read_only": 1
+  },
+  {
+   "fieldname": "evidence_hash",
+   "fieldtype": "Data",
+   "label": "Evidence Hash",
+   "read_only": 1
+  }
+ ],
+ "field_order": [
+  "bank_account",
+  "external_entry_id",
+  "dedup_key",
+  "currency",
+  "amount",
+  "allocated_amount",
+  "cb1",
+  "status",
+  "value_date",
+  "received_at",
+  "transfer",
+  "sb_src",
+  "reference_text",
+  "payer_name",
+  "payer_account_masked",
+  "cb2",
+  "source",
+  "evidence_hash"
+ ],
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 0,
+   "write": 0,
+   "create": 0,
+   "delete": 0
+  },
+  {
+   "role": "Remittance Manager",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 0,
+   "write": 0,
+   "create": 0,
+   "delete": 0
+  },
+  {
+   "role": "Remittance Operator",
+   "read": 1,
+   "report": 1,
+   "export": 0,
+   "print": 1,
+   "email": 1,
+   "share": 0,
+   "write": 0,
+   "create": 0,
+   "delete": 0
+  },
+  {
+   "role": "Remittance Compliance Officer",
+   "read": 1,
+   "report": 1,
+   "export": 0,
+   "print": 1,
+   "email": 1,
+   "share": 0,
+   "write": 0,
+   "create": 0,
+   "delete": 0
+  },
+  {
+   "role": "Remittance Compliance Approver",
+   "read": 1,
+   "report": 1,
+   "export": 0,
+   "print": 1,
+   "email": 1,
+   "share": 0,
+   "write": 0,
+   "create": 0,
+   "delete": 0
+  },
+  {
+   "role": "Remittance Finance",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 0,
+   "write": 0,
+   "create": 0,
+   "delete": 0
+  },
+  {
+   "role": "Remittance Auditor",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 0,
+   "write": 0,
+   "create": 0,
+   "delete": 0
+  }
+ ],
+ "states": [],
+ "links": [],
+ "actions": []
+}

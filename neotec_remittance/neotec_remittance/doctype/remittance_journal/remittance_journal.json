@@ -1,0 +1,266 @@
+{
+ "doctype": "DocType",
+ "name": "Remittance Journal",
+ "module": "Neotec Remittance",
+ "custom": 0,
+ "engine": "InnoDB",
+ "autoname": "hash",
+ "naming_rule": "Random",
+ "istable": 0,
+ "issingle": 0,
+ "is_submittable": 0,
+ "track_changes": 1,
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "in_create": 1,
+ "fields": [
+  {
+   "fieldname": "event_id",
+   "fieldtype": "Data",
+   "label": "Event Id",
+   "unique": 1,
+   "in_list_view": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "event_type",
+   "fieldtype": "Data",
+   "label": "Event Type",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "entity",
+   "fieldtype": "Link",
+   "label": "Legal Entity",
+   "options": "Company",
+   "in_standard_filter": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "currency",
+   "fieldtype": "Link",
+   "label": "Currency",
+   "options": "Currency",
+   "in_list_view": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "total",
+   "fieldtype": "Currency",
+   "label": "Total",
+   "options": "currency",
+   "read_only": 1
+  },
+  {
+   "fieldname": "transfer",
+   "fieldtype": "Link",
+   "label": "Transfer",
+   "options": "Remittance Transfer",
+   "search_index": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "cb1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "posted_at",
+   "fieldtype": "Datetime",
+   "label": "Posted At (UTC)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "accounting_date",
+   "fieldtype": "Date",
+   "label": "Accounting Date",
+   "read_only": 1
+  },
+  {
+   "fieldname": "reverses",
+   "fieldtype": "Link",
+   "label": "Reverses",
+   "options": "Remittance Journal",
+   "read_only": 1
+  },
+  {
+   "fieldname": "narration",
+   "fieldtype": "Small Text",
+   "label": "Narration",
+   "read_only": 1
+  },
+  {
+   "fieldname": "sb_chain",
+   "fieldtype": "Section Break",
+   "label": "Integrity Chain"
+  },
+  {
+   "fieldname": "content_hash",
+   "fieldtype": "Data",
+   "label": "Content Hash",
+   "read_only": 1
+  },
+  {
+   "fieldname": "chain_seq",
+   "fieldtype": "Int",
+   "label": "Chain Seq",
+   "search_index": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "cb2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "prev_hash",
+   "fieldtype": "Data",
+   "label": "Prev Hash",
+   "read_only": 1
+  },
+  {
+   "fieldname": "chain_hash",
+   "fieldtype": "Data",
+   "label": "Chain Hash",
+   "read_only": 1
+  },
+  {
+   "fieldname": "sealed",
+   "fieldtype": "Check",
+   "label": "Sealed",
+   "read_only": 1
+  },
+  {
+   "fieldname": "sb_erp",
+   "fieldtype": "Section Break",
+   "label": "ERP"
+  },
+  {
+   "fieldname": "erp_status",
+   "fieldtype": "Select",
+   "label": "Erp Status",
+   "options": "Pending\nPosted\nSkipped\nError",
+   "default": "Pending",
+   "in_standard_filter": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "erp_reference",
+   "fieldtype": "Data",
+   "label": "Erp Reference",
+   "read_only": 1
+  }
+ ],
+ "field_order": [
+  "event_id",
+  "event_type",
+  "entity",
+  "currency",
+  "total",
+  "transfer",
+  "cb1",
+  "posted_at",
+  "accounting_date",
+  "reverses",
+  "narration",
+  "sb_chain",
+  "content_hash",
+  "chain_seq",
+  "cb2",
+  "prev_hash",
+  "chain_hash",
+  "sealed",
+  "sb_erp",
+  "erp_status",
+  "erp_reference"
+ ],
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 0,
+   "write": 0,
+   "create": 0,
+   "delete": 0
+  },
+  {
+   "role": "Remittance Manager",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 0,
+   "write": 0,
+   "create": 0,
+   "delete": 0
+  },
+  {
+   "role": "Remittance Operator",
+   "read": 1,
+   "report": 1,
+   "export": 0,
+   "print": 1,
+   "email": 1,
+   "share": 0,
+   "write": 0,
+   "create": 0,
+   "delete": 0
+  },
+  {
+   "role": "Remittance Compliance Officer",
+   "read": 1,
+   "report": 1,
+   "export": 0,
+   "print": 1,
+   "email": 1,
+   "share": 0,
+   "write": 0,
+   "create": 0,
+   "delete": 0
+  },
+  {
+   "role": "Remittance Compliance Approver",
+   "read": 1,
+   "report": 1,
+   "export": 0,
+   "print": 1,
+   "email": 1,
+   "share": 0,
+   "write": 0,
+   "create": 0,
+   "delete": 0
+  },
+  {
+   "role": "Remittance Finance",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 0,
+   "write": 0,
+   "create": 0,
+   "delete": 0
+  },
+  {
+   "role": "Remittance Auditor",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 0,
+   "write": 0,
+   "create": 0,
+   "delete": 0
+  }
+ ],
+ "states": [],
+ "links": [],
+ "actions": []
+}

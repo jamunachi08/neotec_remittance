@@ -1,0 +1,234 @@
+{
+ "doctype": "DocType",
+ "name": "Remittance Compliance Case",
+ "module": "Neotec Remittance",
+ "custom": 0,
+ "engine": "InnoDB",
+ "autoname": "hash",
+ "naming_rule": "Random",
+ "istable": 0,
+ "issingle": 0,
+ "is_submittable": 0,
+ "track_changes": 1,
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "in_create": 0,
+ "fields": [
+  {
+   "fieldname": "transfer",
+   "fieldtype": "Link",
+   "label": "Transfer",
+   "options": "Remittance Transfer",
+   "read_only": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "label": "Customer",
+   "options": "Remittance Customer",
+   "read_only": 1
+  },
+  {
+   "fieldname": "case_type",
+   "fieldtype": "Select",
+   "label": "Case Type",
+   "options": "Screening Hit\nEnhanced Due Diligence\nManual Review",
+   "read_only": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Open\nRecommended\nDecided",
+   "default": "Open",
+   "read_only": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1
+  },
+  {
+   "fieldname": "cb1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "rule_version",
+   "fieldtype": "Data",
+   "label": "Rule Version",
+   "read_only": 1
+  },
+  {
+   "fieldname": "opened_at",
+   "fieldtype": "Datetime",
+   "label": "Opened At (UTC)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "sb_ev",
+   "fieldtype": "Section Break",
+   "label": "Evidence"
+  },
+  {
+   "fieldname": "screening_evidence",
+   "fieldtype": "Code",
+   "label": "Screening Evidence",
+   "options": "JSON",
+   "read_only": 1
+  },
+  {
+   "fieldname": "sb_rec",
+   "fieldtype": "Section Break",
+   "label": "Review (maker)"
+  },
+  {
+   "fieldname": "recommendation",
+   "fieldtype": "Select",
+   "label": "Recommendation",
+   "options": "\nApprove\nReject\nReject and Hold Funds"
+  },
+  {
+   "fieldname": "recommendation_note",
+   "fieldtype": "Small Text",
+   "label": "Recommendation Note"
+  },
+  {
+   "fieldname": "cb2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "recommended_by",
+   "fieldtype": "Link",
+   "label": "Recommended By",
+   "options": "User",
+   "read_only": 1
+  },
+  {
+   "fieldname": "recommended_at",
+   "fieldtype": "Datetime",
+   "label": "Recommended At",
+   "read_only": 1
+  },
+  {
+   "fieldname": "sb_dec",
+   "fieldtype": "Section Break",
+   "label": "Decision (checker)"
+  },
+  {
+   "fieldname": "decision",
+   "fieldtype": "Select",
+   "label": "Decision",
+   "options": "\nApprove\nReject\nReject and Hold Funds"
+  },
+  {
+   "fieldname": "decision_note",
+   "fieldtype": "Small Text",
+   "label": "Decision Note"
+  },
+  {
+   "fieldname": "cb3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "decided_by",
+   "fieldtype": "Link",
+   "label": "Decided By",
+   "options": "User",
+   "read_only": 1
+  },
+  {
+   "fieldname": "decided_at",
+   "fieldtype": "Datetime",
+   "label": "Decided At",
+   "read_only": 1
+  }
+ ],
+ "field_order": [
+  "transfer",
+  "customer",
+  "case_type",
+  "status",
+  "cb1",
+  "rule_version",
+  "opened_at",
+  "sb_ev",
+  "screening_evidence",
+  "sb_rec",
+  "recommendation",
+  "recommendation_note",
+  "cb2",
+  "recommended_by",
+  "recommended_at",
+  "sb_dec",
+  "decision",
+  "decision_note",
+  "cb3",
+  "decided_by",
+  "decided_at"
+ ],
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 0,
+   "write": 0,
+   "create": 0,
+   "delete": 0
+  },
+  {
+   "role": "Remittance Compliance Officer",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 0,
+   "write": 1,
+   "create": 0,
+   "delete": 0
+  },
+  {
+   "role": "Remittance Compliance Approver",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 0,
+   "write": 1,
+   "create": 0,
+   "delete": 0
+  },
+  {
+   "role": "Remittance Manager",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 0,
+   "write": 0,
+   "create": 0,
+   "delete": 0
+  },
+  {
+   "role": "Remittance Auditor",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 0,
+   "write": 0,
+   "create": 0,
+   "delete": 0
+  }
+ ],
+ "states": [],
+ "links": [],
+ "actions": []
+}

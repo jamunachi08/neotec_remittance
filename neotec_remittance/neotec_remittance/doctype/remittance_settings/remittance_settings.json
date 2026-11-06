@@ -1,0 +1,547 @@
+{
+ "doctype": "DocType",
+ "name": "Remittance Settings",
+ "module": "Neotec Remittance",
+ "custom": 0,
+ "engine": "InnoDB",
+ "naming_rule": "",
+ "istable": 0,
+ "issingle": 1,
+ "is_submittable": 0,
+ "track_changes": 1,
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "in_create": 0,
+ "fields": [
+  {
+   "fieldname": "sb_general",
+   "fieldtype": "Section Break",
+   "label": "General"
+  },
+  {
+   "fieldname": "enabled",
+   "fieldtype": "Check",
+   "label": "Platform Enabled",
+   "default": "0"
+  },
+  {
+   "fieldname": "default_entity",
+   "fieldtype": "Link",
+   "label": "Default Legal Entity",
+   "options": "Company"
+  },
+  {
+   "fieldname": "functional_currency",
+   "fieldtype": "Link",
+   "label": "Functional Currency",
+   "options": "Currency",
+   "default": "SAR"
+  },
+  {
+   "fieldname": "cb_general",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "dispatch_paused",
+   "fieldtype": "Check",
+   "label": "Dispatch Paused (Emergency Stop)",
+   "default": "0",
+   "description": "Stops new bank instructions. Inbox, status polling and reconciliation keep running."
+  },
+  {
+   "fieldname": "paused_reason",
+   "fieldtype": "Small Text",
+   "label": "Paused Reason",
+   "depends_on": "dispatch_paused"
+  },
+  {
+   "fieldname": "paused_at",
+   "fieldtype": "Datetime",
+   "label": "Paused At (UTC)",
+   "read_only": 1,
+   "depends_on": "dispatch_paused"
+  },
+  {
+   "fieldname": "sb_identity",
+   "fieldtype": "Section Break",
+   "label": "Customer Identity"
+  },
+  {
+   "fieldname": "identity_mode",
+   "fieldtype": "Select",
+   "label": "Identity Mode",
+   "options": "Frappe Session\nGateway Assertion",
+   "default": "Gateway Assertion"
+  },
+  {
+   "fieldname": "gateway_shared_secret",
+   "fieldtype": "Password",
+   "label": "Gateway Shared Secret",
+   "depends_on": "eval:doc.identity_mode=='Gateway Assertion'"
+  },
+  {
+   "fieldname": "gateway_max_skew_seconds",
+   "fieldtype": "Int",
+   "label": "Gateway Max Clock Skew (s)",
+   "default": "120"
+  },
+  {
+   "fieldname": "cb_identity",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "require_authorization_id",
+   "fieldtype": "Check",
+   "label": "Require Step-up Authorization ID",
+   "default": "1"
+  },
+  {
+   "fieldname": "sb_funding",
+   "fieldtype": "Section Break",
+   "label": "Funding"
+  },
+  {
+   "fieldname": "collection_bank_name",
+   "fieldtype": "Data",
+   "label": "Collection Bank Name"
+  },
+  {
+   "fieldname": "collection_iban",
+   "fieldtype": "Data",
+   "label": "Collection IBAN"
+  },
+  {
+   "fieldname": "collection_account",
+   "fieldtype": "Link",
+   "label": "Collection Ledger Account",
+   "options": "Remittance Account",
+   "description": "Safeguarded Bank account that receives customer funds."
+  },
+  {
+   "fieldname": "cb_funding",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "funding_grace_minutes",
+   "fieldtype": "Int",
+   "label": "Funding Grace Minutes",
+   "default": "60",
+   "description": "Minutes after quote expiry within which a late receipt is still honoured."
+  },
+  {
+   "fieldname": "unfunded_expiry_hours",
+   "fieldtype": "Int",
+   "label": "Expire Unfunded Transfers After (h)",
+   "default": "24"
+  },
+  {
+   "fieldname": "late_funding_policy",
+   "fieldtype": "Select",
+   "label": "Late Funding Policy",
+   "options": "Require Reconfirmation\nRefund",
+   "default": "Require Reconfirmation"
+  },
+  {
+   "fieldname": "funding_instructions_en",
+   "fieldtype": "Small Text",
+   "label": "Funding Instructions (English)"
+  },
+  {
+   "fieldname": "funding_instructions_ar",
+   "fieldtype": "Small Text",
+   "label": "Funding Instructions (Arabic)"
+  },
+  {
+   "fieldname": "sb_limits",
+   "fieldtype": "Section Break",
+   "label": "Customer Limits (send currency)"
+  },
+  {
+   "fieldname": "per_transfer_limit",
+   "fieldtype": "Currency",
+   "label": "Per Transfer Limit",
+   "options": "functional_currency",
+   "default": "20000"
+  },
+  {
+   "fieldname": "daily_limit",
+   "fieldtype": "Currency",
+   "label": "Daily Limit",
+   "options": "functional_currency",
+   "default": "40000"
+  },
+  {
+   "fieldname": "cb_limits",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "monthly_limit",
+   "fieldtype": "Currency",
+   "label": "Monthly Limit",
+   "options": "functional_currency",
+   "default": "100000"
+  },
+  {
+   "fieldname": "sb_compliance",
+   "fieldtype": "Section Break",
+   "label": "Compliance"
+  },
+  {
+   "fieldname": "screening_list_updated_at",
+   "fieldtype": "Datetime",
+   "label": "Screening List Updated At (UTC)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "screening_list_version",
+   "fieldtype": "Data",
+   "label": "Screening List Version",
+   "read_only": 1
+  },
+  {
+   "fieldname": "screening_max_list_age_hours",
+   "fieldtype": "Int",
+   "label": "Screening Max List Age Hours",
+   "default": "24"
+  },
+  {
+   "fieldname": "cb_compliance",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "edd_threshold",
+   "fieldtype": "Currency",
+   "label": "EDD Threshold",
+   "options": "functional_currency",
+   "default": "15000"
+  },
+  {
+   "fieldname": "edd_risk_tiers",
+   "fieldtype": "Data",
+   "label": "Risk Tiers Requiring EDD",
+   "default": "High"
+  },
+  {
+   "fieldname": "sb_tax",
+   "fieldtype": "Section Break",
+   "label": "Tax & ZATCA"
+  },
+  {
+   "fieldname": "vat_rate",
+   "fieldtype": "Percent",
+   "label": "VAT Rate on Fees",
+   "default": "15"
+  },
+  {
+   "fieldname": "refund_fee_on_cancel",
+   "fieldtype": "Check",
+   "label": "Refund Fee When Not Delivered",
+   "default": "1"
+  },
+  {
+   "fieldname": "cb_tax",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "zatca_mode",
+   "fieldtype": "Select",
+   "label": "ZATCA Fee Invoicing",
+   "options": "Off\nPer Transfer Invoice",
+   "default": "Off"
+  },
+  {
+   "fieldname": "fee_item",
+   "fieldtype": "Link",
+   "label": "Fee Item",
+   "options": "Item"
+  },
+  {
+   "fieldname": "fee_customer",
+   "fieldtype": "Link",
+   "label": "Fee Invoice Customer",
+   "options": "Customer"
+  },
+  {
+   "fieldname": "fee_taxes_template",
+   "fieldtype": "Link",
+   "label": "Fee Taxes Template",
+   "options": "Sales Taxes and Charges Template"
+  },
+  {
+   "fieldname": "fee_receivable_account",
+   "fieldtype": "Link",
+   "label": "Fee Receivable Account",
+   "options": "Account"
+  },
+  {
+   "fieldname": "sb_exec",
+   "fieldtype": "Section Break",
+   "label": "Execution"
+  },
+  {
+   "fieldname": "auto_dispatch",
+   "fieldtype": "Check",
+   "label": "Dispatch Automatically After Release",
+   "default": "1"
+  },
+  {
+   "fieldname": "dispatch_lease_seconds",
+   "fieldtype": "Int",
+   "label": "Dispatch Lease Seconds",
+   "default": "120"
+  },
+  {
+   "fieldname": "max_dispatch_attempts",
+   "fieldtype": "Int",
+   "label": "Max Dispatch Attempts",
+   "default": "8"
+  },
+  {
+   "fieldname": "cb_exec",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "status_poll_schedule",
+   "fieldtype": "Data",
+   "label": "Status Poll Schedule (s)",
+   "default": "30,120,300,600"
+  },
+  {
+   "fieldname": "unknown_alert_minutes",
+   "fieldtype": "Int",
+   "label": "Alert On Unknown After (min)",
+   "default": "15"
+  },
+  {
+   "fieldname": "refund_execution",
+   "fieldtype": "Select",
+   "label": "Refund Execution",
+   "options": "Manual Confirmation",
+   "default": "Manual Confirmation",
+   "description": "Refund bank instructions are confirmed by Finance with the bank reference. Adapter-executed refunds are planned for Release 2."
+  },
+  {
+   "fieldname": "sb_safe",
+   "fieldtype": "Section Break",
+   "label": "Safeguarding"
+  },
+  {
+   "fieldname": "safeguarding_tolerance",
+   "fieldtype": "Currency",
+   "label": "Safeguarding Tolerance",
+   "options": "functional_currency",
+   "default": "0"
+  },
+  {
+   "fieldname": "cb_safe",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "auto_pause_on_breach",
+   "fieldtype": "Check",
+   "label": "Pause Dispatch On Safeguarding Breach",
+   "default": "1"
+  },
+  {
+   "fieldname": "sb_erp",
+   "fieldtype": "Section Break",
+   "label": "ERPNext Bridge"
+  },
+  {
+   "fieldname": "erp_posting_enabled",
+   "fieldtype": "Check",
+   "label": "Erp Posting Enabled",
+   "default": "0"
+  },
+  {
+   "fieldname": "erp_round_off_account",
+   "fieldtype": "Link",
+   "label": "Erp Round Off Account",
+   "options": "Account"
+  },
+  {
+   "fieldname": "cb_erp",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "erp_cost_center",
+   "fieldtype": "Link",
+   "label": "Erp Cost Center",
+   "options": "Cost Center"
+  },
+  {
+   "fieldname": "sb_notify",
+   "fieldtype": "Section Break",
+   "label": "Notifications"
+  },
+  {
+   "fieldname": "notify_email",
+   "fieldtype": "Check",
+   "label": "Notify Email",
+   "default": "1"
+  },
+  {
+   "fieldname": "cb_notify",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "notify_sms",
+   "fieldtype": "Check",
+   "label": "Notify By SMS",
+   "default": "0"
+  },
+  {
+   "fieldname": "sb_integrity",
+   "fieldtype": "Section Break",
+   "label": "Integrity"
+  },
+  {
+   "fieldname": "db_triggers_installed",
+   "fieldtype": "Check",
+   "label": "Database Immutability Triggers Installed",
+   "read_only": 1
+  },
+  {
+   "fieldname": "last_chain_verification",
+   "fieldtype": "Datetime",
+   "label": "Last Chain Verification (UTC)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "cb_integrity",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "chain_verification_status",
+   "fieldtype": "Small Text",
+   "label": "Chain Verification Status",
+   "read_only": 1
+  }
+ ],
+ "field_order": [
+  "sb_general",
+  "enabled",
+  "default_entity",
+  "functional_currency",
+  "cb_general",
+  "dispatch_paused",
+  "paused_reason",
+  "paused_at",
+  "sb_identity",
+  "identity_mode",
+  "gateway_shared_secret",
+  "gateway_max_skew_seconds",
+  "cb_identity",
+  "require_authorization_id",
+  "sb_funding",
+  "collection_bank_name",
+  "collection_iban",
+  "collection_account",
+  "cb_funding",
+  "funding_grace_minutes",
+  "unfunded_expiry_hours",
+  "late_funding_policy",
+  "funding_instructions_en",
+  "funding_instructions_ar",
+  "sb_limits",
+  "per_transfer_limit",
+  "daily_limit",
+  "cb_limits",
+  "monthly_limit",
+  "sb_compliance",
+  "screening_list_updated_at",
+  "screening_list_version",
+  "screening_max_list_age_hours",
+  "cb_compliance",
+  "edd_threshold",
+  "edd_risk_tiers",
+  "sb_tax",
+  "vat_rate",
+  "refund_fee_on_cancel",
+  "cb_tax",
+  "zatca_mode",
+  "fee_item",
+  "fee_customer",
+  "fee_taxes_template",
+  "fee_receivable_account",
+  "sb_exec",
+  "auto_dispatch",
+  "dispatch_lease_seconds",
+  "max_dispatch_attempts",
+  "cb_exec",
+  "status_poll_schedule",
+  "unknown_alert_minutes",
+  "refund_execution",
+  "sb_safe",
+  "safeguarding_tolerance",
+  "cb_safe",
+  "auto_pause_on_breach",
+  "sb_erp",
+  "erp_posting_enabled",
+  "erp_round_off_account",
+  "cb_erp",
+  "erp_cost_center",
+  "sb_notify",
+  "notify_email",
+  "cb_notify",
+  "notify_sms",
+  "sb_integrity",
+  "db_triggers_installed",
+  "last_chain_verification",
+  "cb_integrity",
+  "chain_verification_status"
+ ],
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 0,
+   "write": 1,
+   "create": 1,
+   "delete": 0
+  },
+  {
+   "role": "Remittance Manager",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 0,
+   "write": 1,
+   "create": 1,
+   "delete": 0
+  },
+  {
+   "role": "Remittance Finance",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 0,
+   "write": 0,
+   "create": 0,
+   "delete": 0
+  },
+  {
+   "role": "Remittance Auditor",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 0,
+   "write": 0,
+   "create": 0,
+   "delete": 0
+  }
+ ],
+ "states": [],
+ "links": [],
+ "actions": []
+}

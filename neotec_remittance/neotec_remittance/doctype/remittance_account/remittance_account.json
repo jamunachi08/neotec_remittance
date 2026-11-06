@@ -1,0 +1,245 @@
+{
+ "doctype": "DocType",
+ "name": "Remittance Account",
+ "module": "Neotec Remittance",
+ "custom": 0,
+ "engine": "InnoDB",
+ "autoname": "field:account_code",
+ "naming_rule": "By fieldname",
+ "istable": 0,
+ "issingle": 0,
+ "is_submittable": 0,
+ "track_changes": 1,
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "in_create": 0,
+ "fields": [
+  {
+   "fieldname": "account_code",
+   "fieldtype": "Data",
+   "label": "Account Code",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "entity",
+   "fieldtype": "Link",
+   "label": "Legal Entity",
+   "options": "Company",
+   "reqd": 1,
+   "in_standard_filter": 1
+  },
+  {
+   "fieldname": "currency",
+   "fieldtype": "Link",
+   "label": "Currency",
+   "options": "Currency",
+   "reqd": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1
+  },
+  {
+   "fieldname": "account_role",
+   "fieldtype": "Select",
+   "label": "Account Role",
+   "options": "Safeguarded Bank\nOperating Bank\nCustomer Liability\nPayout Liability\nDeferred Fee\nFee Revenue\nVAT Payable\nUnallocated Receipts\nRefund Payable\nPartner Settlement Asset\nPartner Charges Expense\nFX Bridge\nRounding\nReturn Suspense\nTreasury Funding",
+   "reqd": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1
+  },
+  {
+   "fieldname": "partner",
+   "fieldtype": "Link",
+   "label": "Partner",
+   "options": "Remittance Partner"
+  },
+  {
+   "fieldname": "cb1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "normal_side",
+   "fieldtype": "Select",
+   "label": "Normal Side",
+   "options": "Debit\nCredit",
+   "read_only": 1
+  },
+  {
+   "fieldname": "balance_mode",
+   "fieldtype": "Select",
+   "label": "Balance Mode",
+   "options": "Synchronous\nDeferred",
+   "default": "Deferred",
+   "description": "Synchronous keeps a locked running balance (needed for reservations). Deferred avoids hot-row contention."
+  },
+  {
+   "fieldname": "enforce_sign",
+   "fieldtype": "Check",
+   "label": "Block Balance Crossing Zero",
+   "default": "0"
+  },
+  {
+   "fieldname": "is_customer_money",
+   "fieldtype": "Check",
+   "label": "Is Customer Money",
+   "read_only": 1
+  },
+  {
+   "fieldname": "disabled",
+   "fieldtype": "Check",
+   "label": "Disabled",
+   "default": "0"
+  },
+  {
+   "fieldname": "sb_bal",
+   "fieldtype": "Section Break",
+   "label": "Balance (debit minus credit)"
+  },
+  {
+   "fieldname": "balance",
+   "fieldtype": "Currency",
+   "label": "Balance",
+   "options": "currency",
+   "read_only": 1
+  },
+  {
+   "fieldname": "reserved",
+   "fieldtype": "Currency",
+   "label": "Reserved",
+   "options": "currency",
+   "read_only": 1
+  },
+  {
+   "fieldname": "cb2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "row_version",
+   "fieldtype": "Int",
+   "label": "Row Version",
+   "read_only": 1,
+   "default": "0"
+  },
+  {
+   "fieldname": "balance_refreshed_at",
+   "fieldtype": "Datetime",
+   "label": "Balance Refreshed At",
+   "read_only": 1
+  },
+  {
+   "fieldname": "sb_erp",
+   "fieldtype": "Section Break",
+   "label": "ERPNext Mapping"
+  },
+  {
+   "fieldname": "erp_account",
+   "fieldtype": "Link",
+   "label": "ERPNext Account",
+   "options": "Account"
+  },
+  {
+   "fieldname": "zatca_invoiced",
+   "fieldtype": "Check",
+   "label": "Invoiced Through ZATCA Fee Invoice",
+   "default": "0"
+  },
+  {
+   "fieldname": "resolution_key",
+   "fieldtype": "Data",
+   "label": "Resolution Key",
+   "read_only": 1,
+   "unique": 1,
+   "hidden": 1
+  }
+ ],
+ "field_order": [
+  "account_code",
+  "entity",
+  "currency",
+  "account_role",
+  "partner",
+  "cb1",
+  "normal_side",
+  "balance_mode",
+  "enforce_sign",
+  "is_customer_money",
+  "disabled",
+  "sb_bal",
+  "balance",
+  "reserved",
+  "cb2",
+  "row_version",
+  "balance_refreshed_at",
+  "sb_erp",
+  "erp_account",
+  "zatca_invoiced",
+  "resolution_key"
+ ],
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 0,
+   "write": 1,
+   "create": 1,
+   "delete": 0
+  },
+  {
+   "role": "Remittance Manager",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 0,
+   "write": 1,
+   "create": 1,
+   "delete": 0
+  },
+  {
+   "role": "Remittance Finance",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 0,
+   "write": 1,
+   "create": 0,
+   "delete": 0
+  },
+  {
+   "role": "Remittance Operator",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 0,
+   "write": 0,
+   "create": 0,
+   "delete": 0
+  },
+  {
+   "role": "Remittance Auditor",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 0,
+   "write": 0,
+   "create": 0,
+   "delete": 0
+  }
+ ],
+ "states": [],
+ "links": [],
+ "actions": [],
+ "title_field": "account_code",
+ "show_title_field_in_link": 1
+}

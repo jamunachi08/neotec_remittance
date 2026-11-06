@@ -1,0 +1,516 @@
+{
+ "doctype": "DocType",
+ "name": "Remittance Transfer",
+ "module": "Neotec Remittance",
+ "custom": 0,
+ "engine": "InnoDB",
+ "autoname": "hash",
+ "naming_rule": "Random",
+ "istable": 0,
+ "issingle": 0,
+ "is_submittable": 0,
+ "track_changes": 1,
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "in_create": 1,
+ "fields": [
+  {
+   "fieldname": "tracking_ref",
+   "fieldtype": "Data",
+   "label": "Tracking Ref",
+   "unique": 1,
+   "in_list_view": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "label": "Customer",
+   "options": "Remittance Customer",
+   "search_index": 1,
+   "in_standard_filter": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "entity",
+   "fieldtype": "Link",
+   "label": "Legal Entity",
+   "options": "Company",
+   "read_only": 1
+  },
+  {
+   "fieldname": "customer_status",
+   "fieldtype": "Data",
+   "label": "Customer Status",
+   "in_list_view": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "cb0",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "quote",
+   "fieldtype": "Link",
+   "label": "Quote",
+   "options": "Remittance Quote",
+   "read_only": 1
+  },
+  {
+   "fieldname": "beneficiary_version",
+   "fieldtype": "Link",
+   "label": "Beneficiary Version",
+   "options": "Remittance Beneficiary Version",
+   "read_only": 1
+  },
+  {
+   "fieldname": "corridor",
+   "fieldtype": "Link",
+   "label": "Corridor",
+   "options": "Remittance Corridor",
+   "in_standard_filter": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "partner",
+   "fieldtype": "Link",
+   "label": "Partner",
+   "options": "Remittance Partner",
+   "in_standard_filter": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "sb_amt",
+   "fieldtype": "Section Break",
+   "label": "Accepted Terms"
+  },
+  {
+   "fieldname": "send_currency",
+   "fieldtype": "Link",
+   "label": "Send Currency",
+   "options": "Currency",
+   "read_only": 1
+  },
+  {
+   "fieldname": "principal",
+   "fieldtype": "Currency",
+   "label": "Principal",
+   "options": "send_currency",
+   "in_list_view": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "fee",
+   "fieldtype": "Currency",
+   "label": "Fee",
+   "options": "send_currency",
+   "read_only": 1
+  },
+  {
+   "fieldname": "vat",
+   "fieldtype": "Currency",
+   "label": "VAT",
+   "options": "send_currency",
+   "read_only": 1
+  },
+  {
+   "fieldname": "total_payable",
+   "fieldtype": "Currency",
+   "label": "Total Payable",
+   "options": "send_currency",
+   "read_only": 1
+  },
+  {
+   "fieldname": "cb1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "receive_currency",
+   "fieldtype": "Link",
+   "label": "Receive Currency",
+   "options": "Currency",
+   "read_only": 1
+  },
+  {
+   "fieldname": "customer_rate",
+   "fieldtype": "Data",
+   "label": "Customer Rate",
+   "read_only": 1
+  },
+  {
+   "fieldname": "payout_amount",
+   "fieldtype": "Currency",
+   "label": "Payout Amount",
+   "options": "receive_currency",
+   "in_list_view": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "authorization_id",
+   "fieldtype": "Data",
+   "label": "Authorization Id",
+   "read_only": 1
+  },
+  {
+   "fieldname": "sb_state",
+   "fieldtype": "Section Break",
+   "label": "State Dimensions"
+  },
+  {
+   "fieldname": "funding_state",
+   "fieldtype": "Select",
+   "label": "Funding State",
+   "options": "Awaiting Funds\nPartially Funded\nFunded\nExpired",
+   "in_standard_filter": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "compliance_state",
+   "fieldtype": "Select",
+   "label": "Compliance State",
+   "options": "Pending\nApproved\nHold\nPending EDD\nRejected",
+   "in_standard_filter": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "payout_state",
+   "fieldtype": "Select",
+   "label": "Payout State",
+   "options": "Not Ready\nReady\nDispatching\nAccepted\nUnknown\nPaid\nRejected\nRecall Requested\nRecalled\nReturned\nCancelled",
+   "in_standard_filter": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "cb2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "refund_state",
+   "fieldtype": "Select",
+   "label": "Refund State",
+   "options": "None\nEligible\nPending\nRefunded",
+   "in_standard_filter": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "recon_state",
+   "fieldtype": "Select",
+   "label": "Recon State",
+   "options": "Unreconciled\nMatched\nException",
+   "read_only": 1
+  },
+  {
+   "fieldname": "row_version",
+   "fieldtype": "Int",
+   "label": "Row Version",
+   "read_only": 1
+  },
+  {
+   "fieldname": "sb_flags",
+   "fieldtype": "Section Break",
+   "label": "Controls"
+  },
+  {
+   "fieldname": "cancel_requested",
+   "fieldtype": "Check",
+   "label": "Cancel Requested",
+   "read_only": 1
+  },
+  {
+   "fieldname": "dispatch_right_consumed",
+   "fieldtype": "Check",
+   "label": "Dispatch Right Consumed",
+   "read_only": 1
+  },
+  {
+   "fieldname": "requote_required",
+   "fieldtype": "Check",
+   "label": "Requote Required",
+   "read_only": 1
+  },
+  {
+   "fieldname": "legal_hold",
+   "fieldtype": "Check",
+   "label": "Legal Hold",
+   "read_only": 1
+  },
+  {
+   "fieldname": "cb3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "last_error_code",
+   "fieldtype": "Data",
+   "label": "Last Error Code",
+   "read_only": 1
+  },
+  {
+   "fieldname": "compliance_case",
+   "fieldtype": "Link",
+   "label": "Compliance Case",
+   "options": "Remittance Compliance Case",
+   "read_only": 1
+  },
+  {
+   "fieldname": "screened_at",
+   "fieldtype": "Datetime",
+   "label": "Screened At (UTC)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "screening_list_version",
+   "fieldtype": "Data",
+   "label": "Screening List Version",
+   "read_only": 1
+  },
+  {
+   "fieldname": "sb_fund",
+   "fieldtype": "Section Break",
+   "label": "Funding"
+  },
+  {
+   "fieldname": "funding_reference",
+   "fieldtype": "Data",
+   "label": "Funding Reference",
+   "unique": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "funded_amount",
+   "fieldtype": "Currency",
+   "label": "Funded Amount",
+   "options": "send_currency",
+   "read_only": 1
+  },
+  {
+   "fieldname": "funding_deadline",
+   "fieldtype": "Datetime",
+   "label": "Funding Deadline (UTC)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "cb4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "payout_attempt",
+   "fieldtype": "Link",
+   "label": "Payout Attempt",
+   "options": "Remittance Payout Attempt",
+   "read_only": 1
+  },
+  {
+   "fieldname": "bank_reference",
+   "fieldtype": "Data",
+   "label": "Bank Reference",
+   "read_only": 1
+  },
+  {
+   "fieldname": "refund_reference",
+   "fieldtype": "Data",
+   "label": "Refund Reference",
+   "read_only": 1
+  },
+  {
+   "fieldname": "refund_amount",
+   "fieldtype": "Currency",
+   "label": "Refund Amount",
+   "options": "send_currency",
+   "read_only": 1
+  },
+  {
+   "fieldname": "sb_times",
+   "fieldtype": "Section Break",
+   "label": "Timeline (UTC)"
+  },
+  {
+   "fieldname": "accepted_at",
+   "fieldtype": "Datetime",
+   "label": "Accepted At",
+   "read_only": 1
+  },
+  {
+   "fieldname": "funded_at",
+   "fieldtype": "Datetime",
+   "label": "Funded At",
+   "read_only": 1
+  },
+  {
+   "fieldname": "released_at",
+   "fieldtype": "Datetime",
+   "label": "Released At",
+   "read_only": 1
+  },
+  {
+   "fieldname": "cb5",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "dispatched_at",
+   "fieldtype": "Datetime",
+   "label": "Dispatched At",
+   "read_only": 1
+  },
+  {
+   "fieldname": "paid_at",
+   "fieldtype": "Datetime",
+   "label": "Paid At",
+   "read_only": 1
+  },
+  {
+   "fieldname": "closed_at",
+   "fieldtype": "Datetime",
+   "label": "Closed At",
+   "read_only": 1
+  }
+ ],
+ "field_order": [
+  "tracking_ref",
+  "customer",
+  "entity",
+  "customer_status",
+  "cb0",
+  "quote",
+  "beneficiary_version",
+  "corridor",
+  "partner",
+  "sb_amt",
+  "send_currency",
+  "principal",
+  "fee",
+  "vat",
+  "total_payable",
+  "cb1",
+  "receive_currency",
+  "customer_rate",
+  "payout_amount",
+  "authorization_id",
+  "sb_state",
+  "funding_state",
+  "compliance_state",
+  "payout_state",
+  "cb2",
+  "refund_state",
+  "recon_state",
+  "row_version",
+  "sb_flags",
+  "cancel_requested",
+  "dispatch_right_consumed",
+  "requote_required",
+  "legal_hold",
+  "cb3",
+  "last_error_code",
+  "compliance_case",
+  "screened_at",
+  "screening_list_version",
+  "sb_fund",
+  "funding_reference",
+  "funded_amount",
+  "funding_deadline",
+  "cb4",
+  "payout_attempt",
+  "bank_reference",
+  "refund_reference",
+  "refund_amount",
+  "sb_times",
+  "accepted_at",
+  "funded_at",
+  "released_at",
+  "cb5",
+  "dispatched_at",
+  "paid_at",
+  "closed_at"
+ ],
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 0,
+   "write": 0,
+   "create": 0,
+   "delete": 0
+  },
+  {
+   "role": "Remittance Manager",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 0,
+   "write": 0,
+   "create": 0,
+   "delete": 0
+  },
+  {
+   "role": "Remittance Operator",
+   "read": 1,
+   "report": 1,
+   "export": 0,
+   "print": 1,
+   "email": 1,
+   "share": 0,
+   "write": 0,
+   "create": 0,
+   "delete": 0
+  },
+  {
+   "role": "Remittance Compliance Officer",
+   "read": 1,
+   "report": 1,
+   "export": 0,
+   "print": 1,
+   "email": 1,
+   "share": 0,
+   "write": 0,
+   "create": 0,
+   "delete": 0
+  },
+  {
+   "role": "Remittance Compliance Approver",
+   "read": 1,
+   "report": 1,
+   "export": 0,
+   "print": 1,
+   "email": 1,
+   "share": 0,
+   "write": 0,
+   "create": 0,
+   "delete": 0
+  },
+  {
+   "role": "Remittance Finance",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 0,
+   "write": 0,
+   "create": 0,
+   "delete": 0
+  },
+  {
+   "role": "Remittance Auditor",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 0,
+   "write": 0,
+   "create": 0,
+   "delete": 0
+  }
+ ],
+ "states": [],
+ "links": [],
+ "actions": [],
+ "title_field": "tracking_ref",
+ "show_title_field_in_link": 1,
+ "search_fields": "tracking_ref,customer,customer_status"
+}

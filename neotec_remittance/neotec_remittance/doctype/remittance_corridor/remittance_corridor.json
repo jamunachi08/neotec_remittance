@@ -1,0 +1,328 @@
+{
+ "doctype": "DocType",
+ "name": "Remittance Corridor",
+ "module": "Neotec Remittance",
+ "custom": 0,
+ "engine": "InnoDB",
+ "autoname": "field:corridor_name",
+ "naming_rule": "By fieldname",
+ "istable": 0,
+ "issingle": 0,
+ "is_submittable": 0,
+ "track_changes": 1,
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "in_create": 0,
+ "fields": [
+  {
+   "fieldname": "corridor_name",
+   "fieldtype": "Data",
+   "label": "Corridor Name",
+   "reqd": 1,
+   "unique": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "entity",
+   "fieldtype": "Link",
+   "label": "Legal Entity",
+   "options": "Company",
+   "reqd": 1
+  },
+  {
+   "fieldname": "enabled",
+   "fieldtype": "Check",
+   "label": "Enabled",
+   "default": "0",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "priority",
+   "fieldtype": "Int",
+   "label": "Priority",
+   "default": "10"
+  },
+  {
+   "fieldname": "version",
+   "fieldtype": "Int",
+   "label": "Version",
+   "read_only": 1,
+   "default": "1"
+  },
+  {
+   "fieldname": "cb1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "effective_from",
+   "fieldtype": "Datetime",
+   "label": "Effective From (UTC)",
+   "reqd": 1
+  },
+  {
+   "fieldname": "effective_to",
+   "fieldtype": "Datetime",
+   "label": "Effective To (UTC)"
+  },
+  {
+   "fieldname": "partner",
+   "fieldtype": "Link",
+   "label": "Partner",
+   "options": "Remittance Partner",
+   "reqd": 1
+  },
+  {
+   "fieldname": "payout_method",
+   "fieldtype": "Select",
+   "label": "Payout Method",
+   "options": "Bank Account",
+   "default": "Bank Account"
+  },
+  {
+   "fieldname": "sb_route",
+   "fieldtype": "Section Break",
+   "label": "Route"
+  },
+  {
+   "fieldname": "send_country",
+   "fieldtype": "Link",
+   "label": "Send Country",
+   "options": "Country",
+   "reqd": 1
+  },
+  {
+   "fieldname": "send_currency",
+   "fieldtype": "Link",
+   "label": "Send Currency",
+   "options": "Currency",
+   "reqd": 1
+  },
+  {
+   "fieldname": "cb2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "receive_country",
+   "fieldtype": "Link",
+   "label": "Receive Country",
+   "options": "Country",
+   "reqd": 1
+  },
+  {
+   "fieldname": "receive_currency",
+   "fieldtype": "Link",
+   "label": "Receive Currency",
+   "options": "Currency",
+   "reqd": 1
+  },
+  {
+   "fieldname": "sb_price",
+   "fieldtype": "Section Break",
+   "label": "Pricing (send currency)"
+  },
+  {
+   "fieldname": "min_amount",
+   "fieldtype": "Currency",
+   "label": "Min Amount",
+   "options": "send_currency",
+   "default": "10"
+  },
+  {
+   "fieldname": "max_amount",
+   "fieldtype": "Currency",
+   "label": "Max Amount",
+   "options": "send_currency",
+   "default": "20000"
+  },
+  {
+   "fieldname": "fx_markup_percent",
+   "fieldtype": "Data",
+   "label": "FX Markup %",
+   "default": "0.50",
+   "description": "Exact decimal, e.g. 0.75"
+  },
+  {
+   "fieldname": "quote_ttl_seconds",
+   "fieldtype": "Int",
+   "label": "Quote Validity (s)",
+   "default": "900"
+  },
+  {
+   "fieldname": "cb3",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "fee_fixed",
+   "fieldtype": "Currency",
+   "label": "Fee Fixed",
+   "options": "send_currency",
+   "default": "0"
+  },
+  {
+   "fieldname": "fee_percent",
+   "fieldtype": "Data",
+   "label": "Fee %",
+   "default": "0"
+  },
+  {
+   "fieldname": "fee_min",
+   "fieldtype": "Currency",
+   "label": "Fee Min",
+   "options": "send_currency",
+   "default": "0"
+  },
+  {
+   "fieldname": "fee_max",
+   "fieldtype": "Currency",
+   "label": "Fee Max",
+   "options": "send_currency",
+   "default": "0",
+   "description": "0 = no maximum"
+  },
+  {
+   "fieldname": "fee_vat_applicable",
+   "fieldtype": "Check",
+   "label": "VAT Applies To Fee",
+   "default": "1"
+  },
+  {
+   "fieldname": "sb_delivery",
+   "fieldtype": "Section Break",
+   "label": "Delivery"
+  },
+  {
+   "fieldname": "charge_bearer",
+   "fieldtype": "Select",
+   "label": "Charge Bearer",
+   "options": "OUR\nSHA\nBEN",
+   "default": "OUR"
+  },
+  {
+   "fieldname": "cb4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "expected_delivery_en",
+   "fieldtype": "Data",
+   "label": "Expected Delivery (English)"
+  },
+  {
+   "fieldname": "expected_delivery_ar",
+   "fieldtype": "Data",
+   "label": "Expected Delivery (Arabic)"
+  }
+ ],
+ "field_order": [
+  "corridor_name",
+  "entity",
+  "enabled",
+  "priority",
+  "version",
+  "cb1",
+  "effective_from",
+  "effective_to",
+  "partner",
+  "payout_method",
+  "sb_route",
+  "send_country",
+  "send_currency",
+  "cb2",
+  "receive_country",
+  "receive_currency",
+  "sb_price",
+  "min_amount",
+  "max_amount",
+  "fx_markup_percent",
+  "quote_ttl_seconds",
+  "cb3",
+  "fee_fixed",
+  "fee_percent",
+  "fee_min",
+  "fee_max",
+  "fee_vat_applicable",
+  "sb_delivery",
+  "charge_bearer",
+  "cb4",
+  "expected_delivery_en",
+  "expected_delivery_ar"
+ ],
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 0,
+   "write": 1,
+   "create": 1,
+   "delete": 0
+  },
+  {
+   "role": "Remittance Manager",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 0,
+   "write": 1,
+   "create": 1,
+   "delete": 0
+  },
+  {
+   "role": "Remittance Finance",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 0,
+   "write": 0,
+   "create": 0,
+   "delete": 0
+  },
+  {
+   "role": "Remittance Operator",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 0,
+   "write": 0,
+   "create": 0,
+   "delete": 0
+  },
+  {
+   "role": "Remittance Compliance Officer",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 0,
+   "write": 0,
+   "create": 0,
+   "delete": 0
+  },
+  {
+   "role": "Remittance Auditor",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 0,
+   "write": 0,
+   "create": 0,
+   "delete": 0
+  }
+ ],
+ "states": [],
+ "links": [],
+ "actions": [],
+ "title_field": "corridor_name",
+ "show_title_field_in_link": 1
+}

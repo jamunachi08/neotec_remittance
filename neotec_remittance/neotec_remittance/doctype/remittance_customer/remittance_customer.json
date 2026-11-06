@@ -1,0 +1,294 @@
+{
+ "doctype": "DocType",
+ "name": "Remittance Customer",
+ "module": "Neotec Remittance",
+ "custom": 0,
+ "engine": "InnoDB",
+ "autoname": "hash",
+ "naming_rule": "Random",
+ "istable": 0,
+ "issingle": 0,
+ "is_submittable": 0,
+ "track_changes": 1,
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "in_create": 0,
+ "fields": [
+  {
+   "fieldname": "customer_name",
+   "fieldtype": "Data",
+   "label": "Customer Name",
+   "reqd": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "customer_name_ar",
+   "fieldtype": "Data",
+   "label": "Customer Name (Arabic)"
+  },
+  {
+   "fieldname": "entity",
+   "fieldtype": "Link",
+   "label": "Legal Entity",
+   "options": "Company",
+   "reqd": 1
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Active\nBlocked\nClosed",
+   "default": "Active",
+   "in_list_view": 1,
+   "in_standard_filter": 1
+  },
+  {
+   "fieldname": "language",
+   "fieldtype": "Select",
+   "label": "Language",
+   "options": "en\nar",
+   "default": "ar"
+  },
+  {
+   "fieldname": "cb1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "user",
+   "fieldtype": "Link",
+   "label": "User",
+   "options": "User",
+   "unique": 1
+  },
+  {
+   "fieldname": "subject_id",
+   "fieldtype": "Data",
+   "label": "Gateway Subject ID",
+   "unique": 1
+  },
+  {
+   "fieldname": "mobile_no",
+   "fieldtype": "Data",
+   "label": "Mobile No",
+   "options": "Phone"
+  },
+  {
+   "fieldname": "email",
+   "fieldtype": "Data",
+   "label": "Email",
+   "options": "Email"
+  },
+  {
+   "fieldname": "nationality",
+   "fieldtype": "Link",
+   "label": "Nationality",
+   "options": "Country"
+  },
+  {
+   "fieldname": "sb_id",
+   "fieldtype": "Section Break",
+   "label": "Identity Document"
+  },
+  {
+   "fieldname": "id_type",
+   "fieldtype": "Select",
+   "label": "Id Type",
+   "options": "National ID\nIqama\nPassport\nGCC ID"
+  },
+  {
+   "fieldname": "id_number_input",
+   "fieldtype": "Data",
+   "label": "Enter / Replace ID Number",
+   "description": "Encrypted on save; the plain value is never stored."
+  },
+  {
+   "fieldname": "cb_id",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "id_number_masked",
+   "fieldtype": "Data",
+   "label": "Id Number Masked",
+   "read_only": 1
+  },
+  {
+   "fieldname": "id_number_index",
+   "fieldtype": "Data",
+   "label": "Id Number Index",
+   "read_only": 1,
+   "hidden": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "id_number_enc",
+   "fieldtype": "Long Text",
+   "label": "Id Number Enc",
+   "read_only": 1,
+   "hidden": 1
+  },
+  {
+   "fieldname": "sb_kyc",
+   "fieldtype": "Section Break",
+   "label": "KYC"
+  },
+  {
+   "fieldname": "kyc_status",
+   "fieldtype": "Select",
+   "label": "Kyc Status",
+   "options": "Pending\nVerified\nRejected\nExpired",
+   "default": "Pending",
+   "in_list_view": 1,
+   "in_standard_filter": 1
+  },
+  {
+   "fieldname": "risk_tier",
+   "fieldtype": "Select",
+   "label": "Risk Tier",
+   "options": "Low\nMedium\nHigh",
+   "default": "Medium",
+   "in_standard_filter": 1
+  },
+  {
+   "fieldname": "cb_kyc",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "kyc_verified_on",
+   "fieldtype": "Date",
+   "label": "Kyc Verified On"
+  },
+  {
+   "fieldname": "kyc_expiry",
+   "fieldtype": "Date",
+   "label": "Kyc Expiry"
+  },
+  {
+   "fieldname": "kyc_provider",
+   "fieldtype": "Data",
+   "label": "Kyc Provider",
+   "description": "e.g. Nafath / Yakeen / manual"
+  },
+  {
+   "fieldname": "kyc_reference",
+   "fieldtype": "Data",
+   "label": "Kyc Reference"
+  },
+  {
+   "fieldname": "row_version",
+   "fieldtype": "Int",
+   "label": "Row Version",
+   "hidden": 1,
+   "read_only": 1,
+   "default": "0"
+  }
+ ],
+ "field_order": [
+  "customer_name",
+  "customer_name_ar",
+  "entity",
+  "status",
+  "language",
+  "cb1",
+  "user",
+  "subject_id",
+  "mobile_no",
+  "email",
+  "nationality",
+  "sb_id",
+  "id_type",
+  "id_number_input",
+  "cb_id",
+  "id_number_masked",
+  "id_number_index",
+  "id_number_enc",
+  "sb_kyc",
+  "kyc_status",
+  "risk_tier",
+  "cb_kyc",
+  "kyc_verified_on",
+  "kyc_expiry",
+  "kyc_provider",
+  "kyc_reference",
+  "row_version"
+ ],
+ "permissions": [
+  {
+   "role": "System Manager",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 0,
+   "write": 1,
+   "create": 1,
+   "delete": 0
+  },
+  {
+   "role": "Remittance Manager",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 0,
+   "write": 1,
+   "create": 1,
+   "delete": 0
+  },
+  {
+   "role": "Remittance Compliance Officer",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 0,
+   "write": 1,
+   "create": 1,
+   "delete": 0
+  },
+  {
+   "role": "Remittance Compliance Approver",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 0,
+   "write": 1,
+   "create": 0,
+   "delete": 0
+  },
+  {
+   "role": "Remittance Operator",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 0,
+   "write": 0,
+   "create": 0,
+   "delete": 0
+  },
+  {
+   "role": "Remittance Auditor",
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "print": 1,
+   "email": 1,
+   "share": 0,
+   "write": 0,
+   "create": 0,
+   "delete": 0
+  }
+ ],
+ "states": [],
+ "links": [],
+ "actions": [],
+ "title_field": "customer_name",
+ "show_title_field_in_link": 1,
+ "search_fields": "customer_name,mobile_no"
+}

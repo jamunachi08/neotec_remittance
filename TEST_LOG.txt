@@ -1,0 +1,7 @@
+
+test_T01_same_key_same_body_returns_same_transfer (neotec_remittance.tests.test_remittance.TestRemittance.test_T01_same_key_same_body_returns_same_transfer) (3.21s)
+..................................
+----------------------------------------------------------------------
+Ran 34 tests in 7.816s
+
+OK
